@@ -6,7 +6,7 @@ import { createTodo } from './graphql/mutations';
 import { listTodos } from './graphql/queries';
 
 import awsExports from './aws-exports';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 Amplify.configure(awsExports);
 
 const initialState = { name: '', description: '' };
@@ -47,6 +47,7 @@ const App = () => {
 
   return (
     <div style={styles.container}>
+      <AmplifySignOut />
       <h2>Amplify Todos</h2>
       <input
         onChange={(event) => setInput('name', event.target.value)}
